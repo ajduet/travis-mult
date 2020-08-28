@@ -1,7 +1,10 @@
+language: generic
+os: linux
+dist: xenial
 jobs:
   include:
-    - stage: angular
-      language: nodejs
+    - stage: client
+      language: node_js
       node_js:
         - 10
       addons:
@@ -15,8 +18,9 @@ jobs:
         - ng build --prod
       cache:
         directories:
-          - ./
-    - stage: java
+          - ./dist
+
+    - stage: api
       language: java
       jdk: oraclejdk8
       before_script:
