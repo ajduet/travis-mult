@@ -16,6 +16,7 @@ jobs:
       script:
         - ng test --watch=false --no-progress --browsers=ChromeHeadless
         - ng build --prod
+      cache: node
       workspaces:
         create:
           name: travis-mul-ws
