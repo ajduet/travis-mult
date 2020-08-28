@@ -24,6 +24,6 @@ jobs:
       language: java
       jdk: oraclejdk8
       before_script:
-        - cd./travis-mul-api
+        - cd ./travis-mul-api
       script:
         - mvn package -DskipTests
