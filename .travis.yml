@@ -13,10 +13,7 @@ jobs:
         - npm install -g @angular/cli
         - npm install
       script:
-        - unset -f pushd ./travis-mul-client
-        - ng test --watch=false --no-progress --browsers=ChromeHeadless
-        - ng build --prod
-        - unset -f popd
+        - pushd ./travis-mul-client && ng test --watch=false --no-progress --browsers=ChromeHeadless && ng build --prod && popd
       cache: npm
       workspaces:
         create:
