@@ -16,13 +16,18 @@ jobs:
       script:
         - ng test --watch=false --no-progress --browsers=ChromeHeadless
         - ng build --prod
-      cache:
-        directories:
-          - ./dist
+      workspaces:
+        create:
+          name: travis-mul-ws
+          paths: ../
 
     - stage: api
       language: java
       jdk: oraclejdk8
+      git:
+        clone: false
+      workspaces:
+        use: travis-mul-ws
       before_script:
         - cd ./travis-mul-api
       script:
