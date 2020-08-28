@@ -19,7 +19,7 @@ jobs:
       workspaces:
         create:
           name: travis-mul-ws
-          paths: /home/travis/build/ajduet/travis-mul
+          paths: /home/travis/build/ajduet/travis-mult
 
     - stage: api
       language: java
@@ -28,5 +28,7 @@ jobs:
         clone: false
       workspaces:
         use: travis-mul-ws
+      before_script:
+        - cd ./ajduet/travis-mult/travis-mul-api
       script:
         - mvn package -DskipTests
