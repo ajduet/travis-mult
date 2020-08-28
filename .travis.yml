@@ -11,8 +11,15 @@ jobs:
         - npm install -g @angular/cli
         - npm install
       script:
-        - ng test --watch=false --no-progress --browser=ChromeHeadless
+        - ng test --watch=false --no-progress --browsers=ChromeHeadless
         - ng build --prod
       cache:
         directories:
           - ./
+    - stage: java
+      language: java
+      jdk: oraclejdk8
+      before_script:
+        - cd./travis-mul-api
+      script:
+        - mvn package -DskipTests
