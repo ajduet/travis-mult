@@ -17,10 +17,11 @@ jobs:
         - ng test --watch=false --no-progress --browsers=ChromeHeadless
         - ng build --prod
         - popd
+      cache: npm
       workspaces:
         create:
-          name: travis-mul-ws-client
-          paths: ../
+          name: travis-mul-ws
+          paths: /home/travis/build/ajduet/travis-mult
 
     - stage: api
       language: java
@@ -30,18 +31,6 @@ jobs:
       workspaces:
         use: travis-mul-ws-api
       before_script:
-        - cd ./travis-mul-api
+        - cd ./ajduet/travis-mult/travis-mul-api
       script:
         - mvn package -DskipTests
-    - stage: docker
-      language: generic
-      workspaces:
-        use: travis-mul-ws-api
-      git:
-        clone: false
-      services:
-        - docker
-      before_script:
-        - cd
-      script:
-        -
