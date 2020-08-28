@@ -28,8 +28,5 @@ jobs:
         clone: false
       workspaces:
         use: travis-mul-ws
-      before_script:
-        - pwd
-        - cd /home/travis/build/ajduet/travis-mul/travis-mul-api
       script:
         - mvn package -DskipTests
