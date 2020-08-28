@@ -30,6 +30,6 @@ jobs:
         use: travis-mul-ws
       before_script:
         - ls -la
-        - cd ./travis-mul-api
+        - cd ~/build/ajduet/travis-mul/travis-mul-api
       script:
         - mvn package -DskipTests
